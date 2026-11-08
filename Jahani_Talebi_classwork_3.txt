@@ -23,3 +23,297 @@ features/discount --> fast-forward
 features/tax --> three way
 features/coupon --> هیچگاه مرج نشد 
 fix/empty-sku --> no fast forward
+
+----------------------------------------------------------
+دستورات 
+
+PS C:\Users\ADORA IT\Desktop\session3> git init 
+Initialized empty Git repository in C:/Users/ADORA IT/Desktop/session3/.git/
+PS C:\Users\ADORA IT\Desktop\session3> touch .gitignore
+touch : The term 'touch' is not recognized as the name of a cmdlet, function, script file, or operable 
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and 
+try again.
+At line:1 char:1
++ touch .gitignore
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (touch:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\ADORA IT\Desktop\session3> echo "print()" > shop.py
+PS C:\Users\ADORA IT\Desktop\session3> git add .
+PS C:\Users\ADORA IT\Desktop\session3> git commit -m "initial Session3 Step1"
+[master (root-commit) 491fdd7] initial Session3 Step1
+ 3 files changed, 1 insertion(+)
+ create mode 100644 .gitignore
+ create mode 100644 Jahani_Talebi_classwork_3.txt
+ create mode 100644 shop.py
+PS C:\Users\ADORA IT\Desktop\session3> git status
+On branch master
+nothing to commit, working tree clean
+PS C:\Users\ADORA IT\Desktop\session3> git switch -c features/discount
+Switched to a new branch 'features/discount'
+PS C:\Users\ADORA IT\Desktop\session3> git branch 
+* features/discount
+  master
+PS C:\Users\ADORA IT\Desktop\session3> git commit -am "added function apply_discount to shop.py"
+[features/discount 0ebeadd] added function apply_discount to shop.py
+ 3 files changed, 3 insertions(+), 1 deletion(-)
+PS C:\Users\ADORA IT\Desktop\session3> git switch master
+Switched to branch 'master'
+PS C:\Users\ADORA IT\Desktop\session3> git merge features/discount
+Updating 491fdd7..0ebeadd
+Fast-forward
+ .gitignore                    |   1 +
+ Jahani_Talebi_classwork_3.txt |   3 ++-
+ shop.py                       | Bin 20 -> 164 bytes
+ 3 files changed, 3 insertions(+), 1 deletion(-)
+PS C:\Users\ADORA IT\Desktop\session3> git log --oneline --graph 
+* 0ebeadd (HEAD -> master, features/discount) added function apply_discount to shop.py
+* 491fdd7 initial Session3 Step1
+PS C:\Users\ADORA IT\Desktop\session3> git log --oneline --graph --all
+* 0ebeadd (HEAD -> master, features/discount) added function apply_discount to shop.py
+* 491fdd7 initial Session3 Step1
+PS C:\Users\ADORA IT\Desktop\session3> git add .
+PS C:\Users\ADORA IT\Desktop\session3> git commit -m "step 1"
+[master 5c7443a] step 1
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+ create mode 100644 .vscode/settings.json
+PS C:\Users\ADORA IT\Desktop\session3> git branch -d features/discount
+Deleted branch features/discount (was 0ebeadd).
+PS C:\Users\ADORA IT\Desktop\session3> git branch
+* master
+PS C:\Users\ADORA IT\Desktop\session3> git switch -c features/tax
+Switched to a new branch 'features/tax'
+PS C:\Users\ADORA IT\Desktop\session3> git commit -am "added function add_tax to shop.py"
+[features/tax 1b77273] added function add_tax to shop.py
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+PS C:\Users\ADORA IT\Desktop\session3> git switch master
+Switched to branch 'master'
+PS C:\Users\ADORA IT\Desktop\session3> echo "# Hello" > README.md
+PS C:\Users\ADORA IT\Desktop\session3> git add .
+PS C:\Users\ADORA IT\Desktop\session3> git commit -m "add hello to README.md " 
+[master 6e51ed1] add hello to README.md
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+PS C:\Users\ADORA IT\Desktop\session3> git log --oneline --graph --all 
+* 6e51ed1 (HEAD -> master) add hello to README.md
+| * 1b77273 (features/tax) added function add_tax to shop.py
+|/  
+* 5c7443a step 1
+* 0ebeadd added function apply_discount to shop.py
+* 491fdd7 initial Session3 Step1
+PS C:\Users\ADORA IT\Desktop\session3> git merge features/tax
+Merge made by the 'ort' strategy.
+ shop.py | Bin 164 -> 296 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+PS C:\Users\ADORA IT\Desktop\session3> git log --oneline --graph --all 
+*   27c73bd (HEAD -> master) Merge branch 'features/tax'
+|\  
+| * 1b77273 (features/tax) added function add_tax to shop.py
+* | 6e51ed1 add hello to README.md
+|/  
+* 5c7443a step 1
+* 0ebeadd added function apply_discount to shop.py
+* 491fdd7 initial Session3 Step1
+PS C:\Users\ADORA IT\Desktop\session3> git branch -d features/tax
+Deleted branch features/tax (was 1b77273).
+PS C:\Users\ADORA IT\Desktop\session3> git switch -c features/coupon
+Switched to a new branch 'features/coupon'
+PS C:\Users\ADORA IT\Desktop\session3> git add .
+PS C:\Users\ADORA IT\Desktop\session3> git commit -m "added function to shop.py" 
+[features/coupon 1053bfb] added function to shop.py
+ 2 files changed, 4 insertions(+)
+PS C:\Users\ADORA IT\Desktop\session3> git switch master
+Switched to branch 'master'
+PS C:\Users\ADORA IT\Desktop\session3> git branch -d features/coupon
+error: the branch 'features/coupon' is not fully merged
+hint: If you are sure you want to delete it, run 'git branch -D features/coupon'
+hint: Disable this message with "git config set advice.forceDeleteBranch false"
+PS C:\Users\ADORA IT\Desktop\session3> git merge features/coupon
+Updating 27c73bd..1053bfb
+Fast-forward
+ Jahani_Talebi_classwork_3.txt |   4 ++++
+ shop.py                       | Bin 296 -> 388 bytes
+ 2 files changed, 4 insertions(+)
+PS C:\Users\ADORA IT\Desktop\session3> git switch features/coupon
+M       Jahani_Talebi_classwork_3.txt
+Switched to branch 'features/coupon'
+PS C:\Users\ADORA IT\Desktop\session3> echo "# TODO" >> shop.py
+PS C:\Users\ADORA IT\Desktop\session3> git switch master
+M       Jahani_Talebi_classwork_3.txt
+M       shop.py
+Switched to branch 'master'
+PS C:\Users\ADORA IT\Desktop\session3> git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Jahani_Talebi_classwork_3.txt
+        modified:   shop.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\ADORA IT\Desktop\session3> git add Jahani_Talebi_classwork_3.txt
+PS C:\Users\ADORA IT\Desktop\session3> git switch features/coupon
+M       Jahani_Talebi_classwork_3.txt
+M       shop.py
+Switched to branch 'features/coupon'
+PS C:\Users\ADORA IT\Desktop\session3> git stash
+Saved working directory and index state WIP on features/coupon: 1053bfb added function to shop.py
+PS C:\Users\ADORA IT\Desktop\session3> git status
+On branch features/coupon
+nothing to commit, working tree clean
+PS C:\Users\ADORA IT\Desktop\session3> git stash list
+stash@{0}: WIP on features/coupon: 1053bfb added function to shop.py
+PS C:\Users\ADORA IT\Desktop\session3> git stash pop
+On branch features/coupon
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Jahani_Talebi_classwork_3.txt
+        modified:   shop.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (96ecd2776ab1c35036ffbabcccdfb143cbf06d94)
+PS C:\Users\ADORA IT\Desktop\session3> git add .\Jahani_Talebi_classwork_3.txt
+PS C:\Users\ADORA IT\Desktop\session3> git commit -m "added note in report_classwork_3"
+[features/coupon 5777fca] added note in report_classwork_3
+ 1 file changed, 2 insertions(+)
+PS C:\Users\ADORA IT\Desktop\session3> git status
+On branch features/coupon
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   shop.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\ADORA IT\Desktop\session3> git restore shop.py
+PS C:\Users\ADORA IT\Desktop\session3> echo "# TODO" >> shop.py
+PS C:\Users\ADORA IT\Desktop\session3> git status -s
+ M shop.py
+?? idea.txt
+PS C:\Users\ADORA IT\Desktop\session3> git stash 
+Saved working directory and index state WIP on features/coupon: 5777fca added note in report_classwork_3
+PS C:\Users\ADORA IT\Desktop\session3> git status -s 
+?? idea.txt
+PS C:\Users\ADORA IT\Desktop\session3> git add .\Jahani_Talebi_classwork_3.txt
+PS C:\Users\ADORA IT\Desktop\session3> git commit -m "initial step 2"
+[features/coupon 87a609c] initial step 2
+ 1 file changed, 2 insertions(+)
+PS C:\Users\ADORA IT\Desktop\session3> git stash pop
+On branch features/coupon
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   shop.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        idea.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (17f4760aa57646496e3a90f6f0dc4672ddc3d348)
+PS C:\Users\ADORA IT\Desktop\session3> git stash -u
+Saved working directory and index state WIP on features/coupon: 87a609c initial step 2
+PS C:\Users\ADORA IT\Desktop\session3> git stash pop 
+On branch features/coupon
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Jahani_Talebi_classwork_3.txt
+        modified:   shop.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        idea.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (92ab2bb92a960ce42dd896de3d82ddba1e2fb8ce)
+PS C:\Users\ADORA IT\Desktop\session3> git restore --staged shop.py
+PS C:\Users\ADORA IT\Desktop\session3> git restore idea.txt
+error: pathspec 'idea.txt' did not match any file(s) known to git
+PS C:\Users\ADORA IT\Desktop\session3> git restore idea.txt
+error: pathspec 'idea.txt' did not match any file(s) known to git
+PS C:\Users\ADORA IT\Desktop\session3> git restore .\idea.txt
+error: pathspec '.\idea.txt' did not match any file(s) known to git
+PS C:\Users\ADORA IT\Desktop\session3> git clean -f .\idea.txt
+Removing idea.txt
+PS C:\Users\ADORA IT\Desktop\session3> git commit -am "end step 2 "
+[features/coupon 2d34051] end step 2
+ 2 files changed, 3 insertions(+)
+PS C:\Users\ADORA IT\Desktop\session3> git branch
+* features/coupon
+  master
+PS C:\Users\ADORA IT\Desktop\session3> git switch master
+Switched to branch 'master'
+PS C:\Users\ADORA IT\Desktop\session3> ls        
+
+
+    Directory: C:\Users\ADORA IT\Desktop\session3
+
+
+Mode                 LastWriteTime         Length Name                                                  
+----                 -------------         ------ ----                                                  
+d-----         11/8/2026   9:43 AM                .vscode                                               
+-a----         11/8/2026   9:48 AM             29 .gitignore                                            
+-a----         11/8/2026  11:05 AM            245 Jahani_Talebi_classwork_3.txt                         
+-a----         11/8/2026  10:01 AM             20 README.md                                             
+-a----         11/8/2026  11:05 AM            388 shop.py                                               
+
+
+PS C:\Users\ADORA IT\Desktop\session3> git switch features/coupon
+Switched to branch 'features/coupon'
+PS C:\Users\ADORA IT\Desktop\session3> git switch master
+Switched to branch 'master'
+PS C:\Users\ADORA IT\Desktop\session3> git add .   
+PS C:\Users\ADORA IT\Desktop\session3> git commit -m "end step 2"
+[master 5572823] end step 2
+ 1 file changed, 7 insertions(+)
+PS C:\Users\ADORA IT\Desktop\session3> git switch -c fix/empty-sku
+Switched to a new branch 'fix/empty-sku'
+PS C:\Users\ADORA IT\Desktop\session3> echo "Product" >> shop.py 
+PS C:\Users\ADORA IT\Desktop\session3> git commit -am "initail step 3 & add Product"
+[fix/empty-sku 38b6fef] initail step 3 & add Product
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+PS C:\Users\ADORA IT\Desktop\session3> git switch master
+Switched to branch 'master'
+PS C:\Users\ADORA IT\Desktop\session3> git merge --no-ff fix/empty-sku
+Merge made by the 'ort' strategy.
+ shop.py | Bin 388 -> 406 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+PS C:\Users\ADORA IT\Desktop\session3> git log --oneline --graph --all 
+*   d9c46ce (HEAD -> master) Merge branch 'fix/empty-sku'
+|\  
+| * 38b6fef (fix/empty-sku) initail step 3 & add Product
+|/  
+* 5572823 end step 2
+| * 2d34051 (features/coupon) end step 2
+| * 87a609c initial step 2
+| * 5777fca added note in report_classwork_3
+|/  
+* 1053bfb added function to shop.py
+*   27c73bd Merge branch 'features/tax'
+|\  
+| * 1b77273 added function add_tax to shop.py
+* | 6e51ed1 add hello to README.md
+|/  
+* 5c7443a step 1
+* 0ebeadd added function apply_discount to shop.py
+* 491fdd7 initial Session3 Step1
+PS C:\Users\ADORA IT\Desktop\session3> git branch
+  features/coupon
+  fix/empty-sku
+* master
+PS C:\Users\ADORA IT\Desktop\session3> git add .\Jahani_Talebi_classwork_3.txt
+PS C:\Users\ADORA IT\Desktop\session3> git commit -m "append part 4 & 5 in step3"
+[master 53461eb] append part 4 & 5 in step3
+ 1 file changed, 3 insertions(+)
+PS C:\Users\ADORA IT\Desktop\session3> git branch -d fix/empty-sku
+Deleted branch fix/empty-sku (was 38b6fef).
+PS C:\Users\ADORA IT\Desktop\session3> git branch -m features/coupon features/promo
+PS C:\Users\ADORA IT\Desktop\session3> git branch -vv
+  features/promo 2d34051 end step 2
+* master         53461eb append part 4 & 5 in step3
+PS C:\Users\ADORA IT\Desktop\session3> git add .
+PS C:\Users\ADORA IT\Desktop\session3> git commit -m "add step 4 in report "
+[master 8c0f7c3] add step 4 in report
+ 1 file changed, 6 insertions(+)
