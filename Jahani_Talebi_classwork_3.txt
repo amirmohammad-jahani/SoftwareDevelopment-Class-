@@ -17,3 +17,9 @@
 گام 3:
 بخش 4 چون تاریخ دقیق کامیت و نویسنده رو داشته باشند اگر باگی پیش بیاد نیاز نیست یکی یکی برگردیم عقب
 بخش 5 چون مرج شده و یک کامیت هم زمان مرج شدن داریم 
+
+گام 4: تعیین نوع مرج ها 
+features/discount --> fast-forward
+features/tax --> three way
+features/coupon --> هیچگاه مرج نشد 
+fix/empty-sku --> no fast forward
