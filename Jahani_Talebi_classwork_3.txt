@@ -1,1 +1,2 @@
-Jahani_Talebi_classwork_3.txt
+گام 1
+بخش 2 استار بر روی features/discount هست
