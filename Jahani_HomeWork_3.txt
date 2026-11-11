@@ -1,1 +1,480 @@
 1: 
+به این حالت detached HEAD می گویند که در آن کامیت جدید به هیچ شاخه ای متصل نیست و ممکن هست از بین بره
+
+2:
+چون main جلو نرفته اولین برنچی که مرج بشه میشه fast-forward و برنچ دیگه میشه سه طرفه چون که از قبل این merge برنچ ایجاد شده برای همین میشه سه طرفه چون main جلو رفته
+
+3:
+چون مرج نشده -d نمیذاره حذف کنید و خطایی نمایش میده 
+اما -D مستقیم حذف میکنه و بدون نمایش خطا
+
+4:
+دستور stash برای کنار گذاشتن هست
+دستور git stash pop اینا رو برمیگردونه برای وقتی که برنچ ایجاد کردیم و فایل ها رو هم تغییر داده ایم اما مطمئن نیستیم که اوکیه و باید commit بشه برای همین می تونیم موقت کنار بگذاریم تا از بین نره و بتونیم برگردونیم
+
+
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git log --oneline --graph --all
+* b15f480 (HEAD -> master, origin/master) end task
+* 8c0f7c3 add step 4 in report
+* 53461eb append part 4 & 5 in step3
+*   d9c46ce Merge branch 'fix/empty-sku'
+|\
+| * 38b6fef initail step 3 & add Product
+|/
+* 5572823 end step 2
+| * 2d34051 (origin/features/promo, features/promo) end step 2
+| * 87a609c initial step 2
+| * 5777fca added note in report_classwork_3
+|/
+* 1053bfb added function to shop.py
+*   27c73bd Merge branch 'features/tax'
+|\
+| * 1b77273 added function add_tax to shop.py
+* | 6e51ed1 add hello to README.md
+|/
+* 5c7443a step 1
+* 0ebeadd added function apply_discount to shop.py
+* 491fdd7 initial Session3 Step1
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git log --noeline
+fatal: unrecognized argument: --noeline
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git log --oneline
+b15f480 (HEAD -> master, origin/master) end task
+8c0f7c3 add step 4 in report
+53461eb append part 4 & 5 in step3
+d9c46ce Merge branch 'fix/empty-sku'
+38b6fef initail step 3 & add Product
+5572823 end step 2
+1053bfb added function to shop.py
+27c73bd Merge branch 'features/tax'
+6e51ed1 add hello to README.md
+1b77273 added function add_tax to shop.py
+5c7443a step 1
+0ebeadd added function apply_discount to shop.py
+491fdd7 initial Session3 Step1
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ touch Jahani_HomeWork_3.txt
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git add .
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git commit -m "Starting HomeWork 3"
+[master faa4627] Starting HomeWork 3
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Jahani_HomeWork_3.txt
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ echo "1: " >> Jahani_HomeWork_3.txt
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git commit -am "Step 1"
+warning: in the working copy of 'Jahani_HomeWork_3.txt', LF will be replaced by CRLF the next time Git touchesit
+[master 82e6881] Step 1
+ 1 file changed, 1 insertion(+)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git log --oneline
+82e6881 (HEAD -> master) Step 1
+faa4627 Starting HomeWork 3
+b15f480 (origin/master) end task
+8c0f7c3 add step 4 in report
+53461eb append part 4 & 5 in step3
+d9c46ce Merge branch 'fix/empty-sku'
+38b6fef initail step 3 & add Product
+5572823 end step 2
+1053bfb added function to shop.py
+27c73bd Merge branch 'features/tax'
+6e51ed1 add hello to README.md
+1b77273 added function add_tax to shop.py
+5c7443a step 1
+0ebeadd added function apply_discount to shop.py
+491fdd7 initial Session3 Step1
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git switch --detach faa4627
+HEAD is now at faa4627 Starting HomeWork 3
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 ((faa4627...))
+$ echo "Home Work 3 " >> Jahani_HomeWork_3.txt
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 ((faa4627...))
+$ git add .
+warning: in the working copy of 'Jahani_HomeWork_3.txt', LF will be replaced by CRLF the next time Git touchesit
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 ((faa4627...))
+$ git commit -m "Step1"
+[detached HEAD 7aa0570] Step1
+ 1 file changed, 1 insertion(+)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 ((7aa0570...))
+$ git switch -c rescue/old-version
+Switched to a new branch 'rescue/old-version'
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (rescue/old-version)
+$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git log --oneline --graph --all
+* 7aa0570 (rescue/old-version) Step1
+| * 82e6881 (HEAD -> master) Step 1
+|/
+* faa4627 Starting HomeWork 3
+* b15f480 (origin/master) end task
+* 8c0f7c3 add step 4 in report
+* 53461eb append part 4 & 5 in step3
+*   d9c46ce Merge branch 'fix/empty-sku'
+|\
+| * 38b6fef initail step 3 & add Product
+|/
+* 5572823 end step 2
+| * 2d34051 (origin/features/promo, features/promo) end step 2
+| * 87a609c initial step 2
+| * 5777fca added note in report_classwork_3
+|/
+* 1053bfb added function to shop.py
+*   27c73bd Merge branch 'features/tax'
+|\
+| * 1b77273 added function add_tax to shop.py
+* | 6e51ed1 add hello to README.md
+|/
+* 5c7443a step 1
+* 0ebeadd added function apply_discount to shop.py
+* 491fdd7 initial Session3 Step1
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git branch -c docs/readme
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git switch -c docs/readme
+fatal: a branch named 'docs/readme' already exists
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ gi branch
+bash: gi: command not found
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git branch
+  docs/readme
+  features/promo
+* master
+  rescue/old-version
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git switch docs/readme
+Switched to branch 'docs/readme'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (docs/readme)
+$ echo "Hello" >> README.md
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (docs/readme)
+$ git commit -am "added Hello in README.md "
+[docs/readme 98f96aa] added Hello in README.md
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (docs/readme)
+$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git switch -c feature/search
+Switched to a new branch 'feature/search'
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (feature/search)
+$ nano shop.py
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (feature/search)
+$ vim shop.py
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (feature/search)
+$ git commit -am "added function search_by_name in shop.py"
+[feature/search 6e92cc5] added function search_by_name in shop.py
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (feature/search)
+$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git merge docs/readme
+Updating 82e6881..98f96aa
+Fast-forward
+ README.md | Bin 20 -> 26 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git merge feature/search
+Merge made by the 'ort' strategy.
+ shop.py | Bin 406 -> 628 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git log --oneline --graph --all
+*   723af06 (HEAD -> master) Merge branch 'feature/search'
+|\
+| * 6e92cc5 (feature/search) added function search_by_name in shop.py
+* | 98f96aa (docs/readme) added Hello in README.md
+|/
+* 82e6881 Step 1
+| * 7aa0570 (rescue/old-version) Step1
+|/
+* faa4627 Starting HomeWork 3
+* b15f480 (origin/master) end task
+* 8c0f7c3 add step 4 in report
+* 53461eb append part 4 & 5 in step3
+*   d9c46ce Merge branch 'fix/empty-sku'
+|\
+| * 38b6fef initail step 3 & add Product
+|/
+* 5572823 end step 2
+| * 2d34051 (origin/features/promo, features/promo) end step 2
+| * 87a609c initial step 2
+| * 5777fca added note in report_classwork_3
+|/
+* 1053bfb added function to shop.py
+*   27c73bd Merge branch 'features/tax'
+|\
+| * 1b77273 added function add_tax to shop.py
+* | 6e51ed1 add hello to README.md
+|/
+* 5c7443a step 1
+* 0ebeadd added function apply_discount to shop.py
+:
+* | 98f96aa (docs/readme) added Hello in README.md
+|/
+* 82e6881 Step 1
+| * 7aa0570 (rescue/old-version) Step1
+|/
+* faa4627 Starting HomeWork 3
+* b15f480 (origin/master) end task
+* 8c0f7c3 add step 4 in report
+* 53461eb append part 4 & 5 in step3
+*   d9c46ce Merge branch 'fix/empty-sku'
+|\
+| * 38b6fef initail step 3 & add Product
+|/
+* 5572823 end step 2
+| * 2d34051 (origin/features/promo, features/promo) end step 2
+| * 87a609c initial step 2
+| * 5777fca added note in report_classwork_3
+|/
+* 1053bfb added function to shop.py
+*   27c73bd Merge branch 'features/tax'
+|\
+| * 1b77273 added function add_tax to shop.py
+* | 6e51ed1 add hello to README.md
+|/
+* 5c7443a step 1
+* 0ebeadd added function apply_discount to shop.py
+* 491fdd7 initial Session3 Step1
+ ^X
+|/
+* 82e6881 Step 1
+| * 7aa0570 (rescue/old-version) Step1
+|/
+* faa4627 Starting HomeWork 3
+* b15f480 (origin/master) end task
+* 8c0f7c3 add step 4 in report
+* 53461eb append part 4 & 5 in step3
+*   d9c46ce Merge branch 'fix/empty-sku'
+|\
+| * 38b6fef initail step 3 & add Product
+|/
+* 5572823 end step 2
+| * 2d34051 (origin/features/promo, features/promo) end step 2
+| * 87a609c initial step 2
+| * 5777fca added note in report_classwork_3
+|/
+* 1053bfb added function to shop.py
+*   27c73bd Merge branch 'features/tax'
+|\
+| * 1b77273 added function add_tax to shop.py
+* | 6e51ed1 add hello to README.md
+|/
+* 5c7443a step 1
+* 0ebeadd added function apply_discount to shop.py
+* 491fdd7 initial Session3 Step1
+(END)
+|/
+* 82e6881 Step 1
+| * 7aa0570 (rescue/old-version) Step1
+|/
+* faa4627 Starting HomeWork 3
+* b15f480 (origin/master) end task
+* 8c0f7c3 add step 4 in report
+* 53461eb append part 4 & 5 in step3
+*   d9c46ce Merge branch 'fix/empty-sku'
+|\
+| * 38b6fef initail step 3 & add Product
+|/
+* 5572823 end step 2
+| * 2d34051 (origin/features/promo, features/promo) end step 2
+| * 87a609c initial step 2
+| * 5777fca added note in report_classwork_3
+|/
+* 1053bfb added function to shop.py
+*   27c73bd Merge branch 'features/tax'
+|\
+| * 1b77273 added function add_tax to shop.py
+* | 6e51ed1 add hello to README.md
+|/
+* 5c7443a step 1
+* 0ebeadd added function apply_discount to shop.py
+* 491fdd7 initial Session3 Step1
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git switch -c feature/export
+Switched to a new branch 'feature/export'
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (feature/export)
+$ git echo "Hello " >> REAFME.md
+git: 'echo' is not a git command. See 'git --help'.
+
+The most similar command is
+        fetch
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (feature/export)
+$ echo "Hello " >> REAFME.md
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (feature/export)
+$ git commit -am "add Hello"
+On branch feature/export
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        REAFME.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (feature/export)
+$ git add .
+warning: in the working copy of 'REAFME.md', LF will be replaced by CRLF the next time Git touches it
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (feature/export)
+$ git commit -m "add Hello in README.md"
+[feature/export 75ac95a] add Hello in README.md
+ 1 file changed, 1 insertion(+)
+ create mode 100644 REAFME.md
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (feature/export)
+$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git branch -d feature/export
+error: the branch 'feature/export' is not fully merged
+hint: If you are sure you want to delete it, run 'git branch -D feature/export'
+hint: Disable this message with "git config set advice.forceDeleteBranch false"
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git branch
+  docs/readme
+  feature/export
+  feature/search
+  features/promo
+* master
+  rescue/old-version
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git branch -D feature/export
+Deleted branch feature/export (was 75ac95a).
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git switch features/promo
+Switched to branch 'features/promo'
+Your branch is up to date with 'origin/features/promo'.
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (features/promo)
+$ echo "# Hello" >> README.md
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (features/promo)
+$ touch test.py
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (features/promo)
+$ git stash -u
+Saved working directory and index state WIP on features/promo: 2d34051 end step 2
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (features/promo)
+$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git branch
+  docs/readme
+  feature/search
+  features/promo
+* master
+  rescue/old-version
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ echo "# Hello" >> README.md
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git commit -am "add hello in master branch"
+[master 1b46491] add hello in master branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+$ git switch features/promo
+Switched to branch 'features/promo'
+Your branch is up to date with 'origin/features/promo'.
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (features/promo)
+$ git stash pop
+On branch features/promo
+Your branch is up to date with 'origin/features/promo'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (91fc6b19780e621c9ed519375ba48ee03a337bc3)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (features/promo)
+$ git add .
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (features/promo)
+$ git commit -m "add file and add hello "
+[features/promo 6319604] add file and add hello
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test.py
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (features/promo)
+$ git status
+On branch features/promo
+Your branch is ahead of 'origin/features/promo' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (features/promo)
+$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+
+ADORA IT@LAPTOP-G4322B3O UCRT64 /d/Term/Term 8/Software Development/session3 (master)
+
